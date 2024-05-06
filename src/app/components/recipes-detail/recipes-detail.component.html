@@ -1,0 +1,66 @@
+<div class="whole">
+  <div class="container">
+    <a [routerLink]="['/recipes']" style="cursor: pointer;">⭠ Back to Recipes</a>
+    <div style="margin-top: 10px; margin-bottom: 25px;" class="detail-content">
+        <div class="detail-image">
+            <img style="width: 450px;" [src]="recipe.image" alt="{{ recipe.label }}" />
+          </div>
+          <div class="detail-staff">
+            <h1 style="color: #fcbf49; font-size: 46px; margin-bottom: 35px;">{{ recipe.label }}</h1>
+            <p><span style="font-weight: bold;">Food Cautions:</span> {{recipe.cautions}}</p>
+            <p style="font-size: 14px;">Calories: {{ recipe.calories | number : "1.0-0" }}, Cuisine Type: {{recipe.cuisineType}} </p>
+            <p style="font-size: 14px;">Total Weight: {{recipe.totalWeight.toFixed(0)}}, Meal Type: {{recipe.mealType}} </p>
+            <h2 style="margin-top: 25px; margin-bottom: 25px; color: #003049; font-size: 34px;">Ingredients:</h2>
+            <ul>
+              <li style="list-style: none; font-size: 12px; opacity: 0.8;" *ngFor="let ingredient of recipe.ingredientLines">
+                {{ ingredient }}
+              </li>
+            </ul>
+          </div>
+    </div>
+    <hr>
+    <div style="margin-top: 25px; margin-bottom: 25px;" class="recipe-description">
+      <h1>More Details:</h1>
+      <div class="more-det">
+        <div style="display: flex; margin-top: 25px; border: 3px solid black; border-radius: 8px; padding: 15px;" *ngFor="let rec of recipe.ingredients" class="dt">
+          <div style="margin-right: 25px;" class="dt-image">
+            <img *ngIf="rec.image; else noPic;" style="border-radius: 12px;" [src]="rec.image" alt="">
+          </div>
+          <div class="dt-title">
+            <div style="margin-bottom: 35px;" class="dt-maintitle">
+              <h1> {{rec.text}} </h1>
+            </div>
+            <div class="dt-subtitle">
+                <ul style="margin-left: 20px;">
+                  <li> Measure {{rec.food}} with {{rec.measure}} and count times {{rec.quantity}} it should be {{rec.weight.toFixed(1)}}g </li>
+                  <li><span style="font-weight: bold;">Food Category:</span> {{rec.foodCategory}} </li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h1 style="margin-top: 25px;">Nutritions</h1>
+    <div style="margin-top: 25px;" class="recipe-table">
+      <div class="recipe-table">
+        <table style="width:100%; text-align:left; border: 3px solid black; padding: 25px; border-radius: 8px;">
+          <tr>
+            <th>Nutrient</th>
+            <th>Amount</th>
+            <th>Unit</th>
+          </tr>
+          <tr *ngFor="let nutrient of nutrients | keyvalue">
+            <td>{{ nutrient.key }}</td>
+            <td>{{ nutrient.value.quantity | number:'1.0-2' }}</td>
+            <td>{{ nutrient.value.unit }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noPic>
+  <h1>No Picture</h1>
+</ng-template>

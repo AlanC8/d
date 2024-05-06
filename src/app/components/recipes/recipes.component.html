@@ -1,0 +1,30 @@
+<div class="whole">
+    <div class="container">
+        <div class="rec-content">
+            <div class="rec-title">
+               <h1>Recipes</h1>
+            </div>
+            <div class="rec-search">
+                <input type="text" [(ngModel)]="searchData" placeholder="Search recipes">
+                <button type="button" (click)="onSearchClick()">Поиск</button>
+            </div>
+        </div>
+        <div class="rec-body">
+            <div class="rec-all" *ngIf="recipes.length > 0; else noRecipes">
+                <div class="rec-card" *ngFor="let hit of recipes">
+                    <img style="border-radius: 6px; width: 100%;" [src]="hit.recipe.image" alt="{{ hit.recipe.label }}">
+                    <div style="padding: 15px;" class="rec-titles">
+                        <h3 style="font-size: 20px; color: #fcbf49; margin-bottom: 0px;">{{ hit.recipe.label.toLowerCase() }}</h3>
+                        <p style="font-size: 14px; opacity: 0.8;">Calories: {{ hit.recipe.calories.toFixed(0) }}, Weight: {{ hit.recipe.totalWeight.toFixed(0) }} g</p>
+                        <p style="font-size: 14px; opacity: 0.8;">Ingredients: {{hit.recipe.ingredientLines.length}} </p>
+                        <button [routerLink]="['/recipe-detail', hit.recipe.label.toLowerCase()]" style="margin-top: 10px; cursor: pointer;">
+                            <a style="text-decoration: none; color: white;">View Recipe</a></button>
+                    </div>
+                </div>
+              </div>
+              <ng-template #noRecipes>
+                <p>No recipes found!</p>
+              </ng-template>
+        </div>
+    </div>
+</div>

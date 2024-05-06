@@ -1,0 +1,18 @@
+.whole{
+    background-color: white;
+    border-radius: 12px;
+    .container{
+        margin: 0 auto;
+        width: 80%;
+        padding-top: 45px;
+        padding-bottom: 45px;
+        .detail-content{
+            display: flex;
+            img{
+                margin-right: 25px;
+                border-radius: 32px;
+                border: 3px solid black;
+            }
+        }
+    }
+}

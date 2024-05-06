@@ -1,0 +1,59 @@
+.whole{
+    background-color: white;
+    border-radius: 12px;
+    .container{
+        margin: 0 auto;
+        padding: 45px 0 25px;
+        width: 80%;
+        .rec-content{
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .rec-title{
+                font-size: 24px;
+                font-weight: 600;
+                color: #0d3b66;
+            }
+            .rec-search{
+                input{
+                    width: 280px;
+                    padding: 8px 12px;
+                    border-radius: 4px 0 0 4px;
+                    border: 1px solid rgb(170, 170, 170);
+                }
+                button{
+                    padding: 8px 12px;
+                    background-color: #fcbf49;
+                    color: white;
+                    border: #fcbf49 solid 1px;
+                    font-weight: 700;
+                    border-radius: 0 4px 4px 0;
+                    cursor: pointer;
+                }
+            }
+        }
+        .rec-body{
+            margin-top: 35px;
+            .rec-all{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                .rec-card{
+                    width: 325px;
+                    border: 1px solid black;
+                    border-radius: 6px;
+                    margin: 15px 10px;
+                    button{
+                        font-weight: 700;
+                        border: none;
+                        background-color: #fcbf49;
+                        color: white;
+                        padding: 8px 12px;
+                        border-radius: 6px;
+                    }
+                }
+            }
+        }
+    }
+}
