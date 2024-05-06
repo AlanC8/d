@@ -1,27 +1,50 @@
-# Front
+# :cloud: Chef.in
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
+## :cd: Установка
 
-## Development server
+```bash
+git clone https://github.com/AlanC8/nfac-task9.git
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```bash
+cd nfac-task9
+```
 
-## Code scaffolding
+```bash
+npm install
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+ng serve
+```
 
-## Build
+### ⚠️ Warning CORS ERROR
+Если нет прогрузки товаров и выходит ошибка CORS
+```bash
+ng serve --proxy-config proxy.json
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## :bar_chart: Подходы, методологии проектирования и разработки 
 
-## Running unit tests
+В проекте использовался подход MVVM (Model-View-ViewModel) и внедрение зависимостей (Dependency Injection), что позволило эффективно управлять рецептами через сервис.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## :bomb: Весь процесс разработки 
 
-## Running end-to-end tests
+Проект был очень интересным, но работа с API представила ряд сложностей, особенно из-за больших объёмов данных. Из-за этого сложно было создать точные интерфейсы, поэтому иногда приходилось использовать тип any, что не является лучшей практикой в TypeScript. Однако в случаях, когда данные от API были точными, я использовал интерфейс для Nutritions в деталях продукта.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![image](https://github.com/AlanC8/nfac-task9/assets/110681275/100c9b8a-4372-4586-8630-5a898c965084)
+![image](https://github.com/AlanC8/nfac-task9/assets/110681275/13d6b3f2-5825-4d7f-b5c5-d04b9e554a2a)
+![image](https://github.com/AlanC8/nfac-task9/assets/110681275/e733735c-f688-4c05-b986-d5bd3185c0f7)
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Одной из сложностей было отсутствие уникальных ключей ID в данных API, что затруднило создание кликабельных роутингов. Пришлось провести анализ данных, чтобы определить уникальные атрибуты, в результате чего были выбраны uri и name. Теперь роутинг работает по метке label (название рецепта от API), и при клике пользователь переходит на страницу продукта, где можно узнать подробности о рецепте и его приготовлении.
+
+
+![image](https://github.com/AlanC8/nfac-task9/assets/110681275/f0b1084d-d66c-4634-a678-d79a44198343)
+
+
+Были некоторые проблемы с роутингом, но они не были критичными.
+
+Переходя к недостаткам, стоит отметить, что при поиске первого продукта возникают сложности с получением полной информации, так как поиск происходит по имени. Это вызывает ошибки, поскольку API не предоставляет уникальных числовых идентификаторов вроде ID.
+
+В целом, этот проект помог мне глубже изучить некоторые аспекты Angular и обнаружить пробелы в моих знаниях, что способствовало их устранению.
