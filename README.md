@@ -1,6 +1,6 @@
 # :cloud: Chef.in
 
-## :cd: Установка
+## :cd: Установка (Нужен Angular CLI 17)
 
 ```bash
 git clone https://github.com/AlanC8/nfac-task9.git
